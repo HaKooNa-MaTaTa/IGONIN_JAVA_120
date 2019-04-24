@@ -61,6 +61,6 @@ class Program {
 			number_x = number_x % number_sravneniya_x; // izbavlyaemsya ot pervoi cifri chisla
 			x_peremennih = x_peremennih * peremennaya_x; // peremnozhaem cifri chisla
 			amount_number_x = amount_number_x - 1; // umenshaem peremennuyou kolichestva cifr na odin
-	} System.out.println(x_peremennih); // vivodim resultat na ekran
-}
+		} System.out.println(x_peremennih); // vivodim resultat na ekran
+	}
 }
