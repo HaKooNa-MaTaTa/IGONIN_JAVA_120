@@ -18,43 +18,23 @@ class Program {
 			}
 		}
 	}
-
 	public static boolean isPrime(int number) {
 		boolean result = false;
-
-		//if (number == 1) {
-			//result = false;
-		//}
-		if (number == 3) {
-			result = true;
-		}
-		if (number == 5) {
-			result = true;
-		}
-		if (number == 7) {
-			result = true;
-		}
-
-		if (number % 2 == 0) {
-			if (number == 2){
-				result = true;
-			}
-			else {
-				result = false;
+		int i;
+		int resultDiv = 0;
+		for (i = 1; i <= number; i++) {
+			int numberForCycle = 0;
+			numberForCycle = number % i;
+			if (numberForCycle == 0) {
+				resultDiv = resultDiv + 1;
 			}
 		}
-		else if (number % 2 == 1) {
-			if (number % 3 != 0) {
-				if (number % 5 != 0) {
-					if (number % 7 != 0) {
-						if (number % 9 != 0) {
-							result = true;
-						}
-					}
-				}
-			}
-		} 
+		if (resultDiv > 2) {
+			result = false;
+		}
+		else {
+			result = true;
+		}
 		return result;
 	}
-
 }
