@@ -1,56 +1,53 @@
 package itis;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
-    	sortRegister sortRegister = new sortRegister();
-    	SearchChar searchChar = new SearchChar();
-    	OutputChar outputChar = new OutputChar();
+    public static void main(String[] args) { /// 32
+
 	    Scanner scanner = new Scanner(System.in);
-
 	    char[] symbol = scanner.nextLine().toCharArray();
-	    int[] symbolResigned = new int[symbol.length];
-	    int[] arrayHighRegister = new int[26];
-	    int[] arrayLowRegister = new int[26];
-	    int maxValueArray = 0;
+	    char[] result = new char[symbol.length / 2];
+	    int globalCount = 0;
+	    int localCount = 0;
+		int value = 0;
+		int tempChar = 0;
+		int buffChar = 0;
+		int k = 0;
 
-
-		for (int i = 0; i < symbolResigned.length; i++) {
-			int temp = (int)symbol[i];
-			symbolResigned[i] = temp;
-			if (temp > maxValueArray) {
-				maxValueArray = temp;
+		for(int i = 0; i < symbol.length - 1; i++) {
+			for(int j = i + 1; j < symbol.length; j++) {
+				tempChar = symbol[i];
+				if(symbol[i] == symbol[j]) {
+					localCount++;
+				}
+				else if((symbol[i] + 32) == symbol[j]) {
+					localCount++;
+				}
+				else if((symbol[i] - 32) == symbol[j]) {
+					localCount++;
+				}
+			}
+			if(localCount > globalCount) {
+				for(int g = 0; g < result.length; g++) {
+					result[g] = 0;
+				}
+				globalCount = localCount;
+				result[k] = (char)tempChar;
+				k++;
+			}
+			else if(localCount == globalCount) {
+				result[k] = (char)tempChar;
+				k++;
+			}
+			localCount = 0;
+			tempChar = 0;
+		}
+		for(int z = 0; z < result.length; z++) {
+			if(result[z] != 0) {
+				System.out.println((char)result[z]);
 			}
 		}
-		sortRegister.sortRegisterArray(symbolResigned, arrayHighRegister, arrayLowRegister);
-		searchChar.searchChar(symbolResigned, arrayHighRegister, arrayLowRegister);
-		outputChar.outputChar(symbolResigned);
-
-//		System.out.println(Arrays.toString(symbol));
-//		System.out.println(Arrays.toString(symbolResigned));
-//		System.out.println(Arrays.toString(arrayHighRegister));
-//		System.out.println(Arrays.toString(arrayLowRegister));
- //	    int[] temp = new int[maxValueArray + 1];
- 	//    for (int i = 0; i < symbolResigned.length; i++) {
- 	  //  	temp[symbolResigned[i]]++;
-		//}
-// 	    maxValueArray = 0;
-// 	    int charCode = 0;
-// 	    for (int i = 0; i < temp.length; i++) {
-// 	    	if (temp[i] > maxValueArray) {
-// 	    		maxValueArray = temp[i];
-// 	    		charCode = i;
-//			}
-//		}
-// 	    char forPrintOnDisplay = (char)charCode;
-// 	    System.out.println("Char " + forPrintOnDisplay + " found " + maxValueArray);
-//		for (int i = 0; i < temp.length; i++) {
-//			if (temp[i] != 0) {
-//
-//			}
-//		}
     }
 }
