@@ -8,45 +8,37 @@ public class Main {
 
 	    Scanner scanner = new Scanner(System.in);
 	    char[] symbol = scanner.nextLine().toCharArray();
-	    char[] result = new char[symbol.length / 2];
-	    int globalCount = 0;
-	    int localCount = 0;
-		int value = 0;
-		int tempChar = 0;
-		int buffChar = 0;
+	    int[] result = new int[26];
+		int temp = 0;
+		int maxValue = 0;
+		char[] oftenFoundChar = new char[symbol.length];
 		int k = 0;
-
-		for(int i = 0; i < symbol.length - 1; i++) {
-			for(int j = i + 1; j < symbol.length; j++) {
-				tempChar = symbol[i];
-				if(symbol[i] == symbol[j]) {
-					localCount++;
-				}
-				else if((symbol[i] + 32) == symbol[j]) {
-					localCount++;
-				}
-				else if((symbol[i] - 32) == symbol[j]) {
-					localCount++;
-				}
+	    for (int i = 0; i < symbol.length; i++) {
+	    	temp = (int)symbol[i];
+	    	if (temp < 91) {
+	    		result[temp - 65]++;
 			}
-			if(localCount > globalCount) {
-				for(int g = 0; g < result.length; g++) {
-					result[g] = 0;
-				}
-				globalCount = localCount;
-				result[k] = (char)tempChar;
-				k++;
+	    	else if (temp > 96) {
+	    		result[temp - 97]++;
 			}
-			else if(localCount == globalCount) {
-				result[k] = (char)tempChar;
-				k++;
-			}
-			localCount = 0;
-			tempChar = 0;
 		}
-		for(int z = 0; z < result.length; z++) {
-			if(result[z] != 0) {
-				System.out.println((char)result[z]);
+		for (int i = 0; i < result.length; i++) {
+			if (result[i] > maxValue) {
+				k = 0;
+				for (int j = 0; j < oftenFoundChar.length; j++) {
+					oftenFoundChar[j] = ' ';
+				}
+				maxValue = result[i];
+				oftenFoundChar[k] = (char)(i + 65);
+			}
+			else if (result[i] == maxValue) {
+				k++;
+				oftenFoundChar[k] = (char)(i + 65);
+			}
+		}
+		for (int i = 0; i < oftenFoundChar.length; i++) {
+			if (oftenFoundChar[i] != ' ') {
+				System.out.println(oftenFoundChar[i]);
 			}
 		}
     }
