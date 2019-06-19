@@ -16,7 +16,7 @@ public class Menu {
 
         String choice = scanner.nextLine();
 
-        if ((choice == "1") || (choice == "Connect TV")) {
+        if ((choice.equals("1")) || (choice.equals("Connect TV"))) {
             choiceAtype.setStrategy(new RegistrationNewUser());
             choiceAtype.registration();
         }

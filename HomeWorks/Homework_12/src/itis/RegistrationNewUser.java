@@ -1,6 +1,8 @@
 package itis;
 // Регистрация нового пользователя
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.util.Scanner;
 
 public class RegistrationNewUser implements Strategy {
