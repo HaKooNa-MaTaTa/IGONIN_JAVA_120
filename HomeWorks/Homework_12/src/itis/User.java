@@ -35,11 +35,10 @@ public class User {
         this.id = id;
     }
 
-    public void setChannels(String channel) {
-        showChannels();
+    public void setChannels(int channel) {
         if (count < 10) {
             channels[count] = new Channel();
-            channels[count].setName(channel);
+            channels[count].setName(ProgramCanalsList.canalsList[channel]);
             count++;
         } else {
             System.out.println("You have a maximum channels");

@@ -1,4 +1,4 @@
-package Humans;
+package ru.itis.Humans;
 
 public class Human {
     String name;

@@ -1,9 +1,10 @@
 package itis;
 // Это класс отвечающий за главное меню
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Menu {
-    public void run() {
+    public void run() throws IOException {
 
         Registration choiceAtype = new Registration();
         Scanner  scanner = new Scanner(System.in);
