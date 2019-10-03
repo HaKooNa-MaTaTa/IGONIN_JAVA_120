@@ -18,6 +18,10 @@
         <input type="checkbox" name="remember-me"> Запомни меня
         <br>
         <input type="submit" value="SignIn">
+        <br>
+    </form>
+    <form action="signUp">
+        <button>SignUp</button>
     </form>
 </div>
 </body>

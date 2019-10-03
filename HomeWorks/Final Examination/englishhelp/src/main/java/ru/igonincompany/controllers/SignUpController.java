@@ -28,14 +28,14 @@ public class SignUpController {
     @GetMapping(value = "/signUp")
     public String getSignUpPage(SignUpForm form, @RequestParam(value = "id", required = false) String uuid) {
         if(uuid == null || uuid.equals("") || usersService.isNotValidUUID(uuid)) {
-            return "redirect:/signIn";
-        } else return "redirect:/signUp";
+            return "signUp";
+        } else return "redirect:/signIn";
     }
 
     @PostMapping(value = "/signUp")
     public String signUp(SignUpForm form, @RequestParam(value = "id", required = false) String uuid) {
         if(uuid == null || uuid.equals("") || usersService.isNotValidUUID(uuid)) {
-            return "redirect:/signIn";
+            return "signUp";
         }
         usersService.signUp(uuid, form);
         return "redirect:/signIn";

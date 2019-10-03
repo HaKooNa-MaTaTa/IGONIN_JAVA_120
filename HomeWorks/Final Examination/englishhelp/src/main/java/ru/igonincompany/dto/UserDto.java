@@ -22,7 +22,10 @@ public class UserDto {
 
     public static UserDto from(User model) {
         return UserDto.builder()
+                .id(model.getId())
                 .firstName(model.getFirstName())
+                .lastName(model.getLastName())
+                .role(model.getRole().toString())
                 .build();
     }
 }
