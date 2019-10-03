@@ -27,11 +27,11 @@ public class EnglishHelpApplication {
         return configuration;
     }
 
-    //@SneakyThrows
-    //@Bean
-    //public Template confirmMailTemplate() {
-    //    return freemarkerConfiguration().getTemplate("/mails/email_confirm.ftl");
-    //}
+    @SneakyThrows
+    @Bean
+    public Template confirmMailTemplate() {
+        return freemarkerConfiguration().getTemplate("/mails/email_confirm.ftl");
+    }
 
     @Bean
     public ExecutorService executorService() {
