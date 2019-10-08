@@ -11,7 +11,7 @@ public class RootController {
     @GetMapping(value = "/")
     public String getRootPage(Authentication authentication) {
         if (authentication != null) {
-            return "redirect:/profile";
+            return "redirect:/menu";
         } else {
             return "redirect:/signIn";
         }
