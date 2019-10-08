@@ -11,6 +11,7 @@
 <div>
     <h1>Введите ваш Email для прохождения регистрации</h1>
     <form action="/email/confirm" method="post">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <input type="text" name="email" placeholder="Email">
         <br>
         <input type="submit" value="SignUp">

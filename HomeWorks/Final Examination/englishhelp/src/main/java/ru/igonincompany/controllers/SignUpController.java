@@ -26,16 +26,16 @@ public class SignUpController {
     }
 
     @GetMapping(value = "/signUp")
-    public String getSignUpPage(SignUpForm form, @RequestParam(value = "id", required = false) String uuid) {
+    public String getSignUpPage(@RequestParam(value = "id", required = false) String uuid) {
         if(uuid == null || uuid.equals("") || usersService.isNotValidUUID(uuid)) {
-            return "signUp";
-        } else return "redirect:/signIn";
+            return "redirect:/signIn";
+        } else return "signUp";
     }
 
     @PostMapping(value = "/signUp")
     public String signUp(SignUpForm form, @RequestParam(value = "id", required = false) String uuid) {
         if(uuid == null || uuid.equals("") || usersService.isNotValidUUID(uuid)) {
-            return "signUp";
+            return "redirect:/signIn";
         }
         usersService.signUp(uuid, form);
         return "redirect:/signIn";

@@ -58,7 +58,7 @@ public class UsersServiceImpl implements UsersService {
         user.setFirstName(form.getFirstName());
         user.setLastName(form.getLastName());
         user.setState(UserState.CONFIRMED);
-        user.setConfirmUUID(null);
+        //user.setConfirmUUID(null);
 
         usersRepository.save(user);
     }

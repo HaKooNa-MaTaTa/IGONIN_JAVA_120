@@ -32,7 +32,7 @@ public class WebConfigSecurity extends WebSecurityConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
 
-
+    @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/profile/**").authenticated()
@@ -40,7 +40,6 @@ public class WebConfigSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers("/email/confirm").permitAll()
                 .antMatchers("/").permitAll()
                 .and()
-
                 .formLogin()
                 .loginPage("/signIn")
                 .defaultSuccessUrl("/profile")
