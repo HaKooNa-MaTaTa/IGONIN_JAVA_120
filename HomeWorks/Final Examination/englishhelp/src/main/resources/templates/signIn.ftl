@@ -20,7 +20,7 @@
         <input type="submit" value="SignIn">
         <br>
     </form>
-    <form action="signUp">
+    <form action="/signUp">
         <button>SignUp</button>
     </form>
 </div>

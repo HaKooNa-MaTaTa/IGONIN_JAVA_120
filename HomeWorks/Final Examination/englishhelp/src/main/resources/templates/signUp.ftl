@@ -10,6 +10,7 @@
 <body>
 <div>
     <form method="post">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <input type="text" name="firstName" placeholder="First Name">
         <br>
         <input type="text" name="lastName" placeholder="Last Name">
